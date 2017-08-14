@@ -4,5 +4,5 @@
     - name: "Creating machines"
       command: "echo $(hostname)"
       register: echo
-    - debug: "{{ echo.stdout_lines }}"
+    - debug: var=echo.stdout_lines
 
