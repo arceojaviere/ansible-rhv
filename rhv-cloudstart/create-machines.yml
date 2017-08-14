@@ -1,0 +1,4 @@
+name: "Cloud machine creation"
+    tasks:
+        - name: "Creating machines"
+          command: "echo $(hostname)"
