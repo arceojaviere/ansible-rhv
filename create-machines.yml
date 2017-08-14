@@ -11,4 +11,4 @@
         username: admin@internal
         password: safepassword
         insecure: yes
-    -debug: var=ovirt_auth
+    - debug: var=ovirt_auth
