@@ -9,7 +9,7 @@
         insecure: yes
     - name: "Creating virtual machine"
       ovirt_vms:
-        auth: {{ ovirt_auth }}
+        auth: "{{ ovirt_auth }}"
         name: "AutomaticVm"
         description: "Automatically generated VM"
         cluster: "TestCluster"
