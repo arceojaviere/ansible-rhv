@@ -1,8 +1,14 @@
 - name: "Cloud machine creation"
   hosts: "all"
   tasks:
-    - name: "Creating machines"
-      command: "echo $(hostname)"
+    - name: "Testing localhost connectivity"
+      command: "echo test"
       register: echo
     - debug: var=echo.stdout_lines
-
+    - name: "Authenticating in RHV"
+      ovirt_auth:
+        url: "https://rhevm.lab/ovirt-engine/api"
+        username: admin@internal
+        password: safepassword
+        insecure: yes
+    -debug: var=ovirt_auth
