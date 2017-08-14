@@ -3,3 +3,6 @@
   tasks:
     - name: "Creating machines"
       command: "echo $(hostname)"
+      register: echo
+    - debug: "{{ echo.stdout_lines }}"
+
