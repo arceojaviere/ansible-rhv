@@ -1,14 +1,27 @@
 - name: "Cloud machine creation"
   hosts: "all"
   tasks:
-    - name: "Testing localhost connectivity"
-      command: "echo test"
-      register: echo
-    - debug: var=echo.stdout_lines
     - name: "Authenticating in RHV"
       ovirt_auth:
         url: "https://rhevm.lab/ovirt-engine/api"
         username: admin@internal
         password: safepassword
         insecure: yes
-    - debug: var=ovirt_auth
+    - name: "Creating virtual machine"
+      ovirt_vms:
+        auth: {{ ovirt_auth }}
+        name: "AutomaticVm"
+        description: "Automatically generated VM"
+        cluster: "TestCluster"
+        cpu_cores: 1
+        cpu_sockets: 1
+        memory: "500MiB"
+        disks:
+          - name: "system"
+            bootable: True
+        nics:
+          - name: "main"
+            profile_name: "ovirtmgmt"
+        operating_system: "rhel_7x64"
+        state: "present"
+        type: "server"
