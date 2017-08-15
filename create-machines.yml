@@ -33,5 +33,5 @@
         storage_domain: "domain1"
         bootable: True
         state: "attached"
-        vm:name: "AutomaticVm"
+        vm_name: "AutomaticVm"
         wait: True
