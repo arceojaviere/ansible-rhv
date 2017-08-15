@@ -30,6 +30,7 @@
         name: "AutomaticVmSystem"
         size: "2GiB"
         format: "cow"
+        interface: "virtio"
         storage_domain: "domain1"
         bootable: True
         state: "attached"
