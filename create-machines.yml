@@ -17,9 +17,6 @@
         cpu_sockets: 1
         memory: "500MiB"
         memory_guaranteed: "500MiB"
-        disks:
-          - name: "system"
-            bootable: True
         nics:
           - name: "main"
             profile_name: "ovirtmgmt"
