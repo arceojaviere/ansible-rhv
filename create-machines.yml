@@ -32,6 +32,7 @@
         nics:
           - name: "main"
             profile_name: "ovirtmgmt"
+        boot_devices: "['cdrom', 'hd']"
         operating_system: "rhel_7x64"
         state: "present"
         type: "server"
