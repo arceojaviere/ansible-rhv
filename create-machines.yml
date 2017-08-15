@@ -12,6 +12,7 @@
         auth: "{{ ovirt_auth }}"
         name: "AutomaticVmSystem"
         size: "2GiB"
+        format: "cow"
         storage_domain: "domain1"
         bootable: True
         state: "present"
