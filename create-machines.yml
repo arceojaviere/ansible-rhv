@@ -7,16 +7,6 @@
         username: admin@internal
         password: safepassword
         insecure: yes
-    - name: "Creating virtual disk"
-      ovirt_disks:
-        auth: "{{ ovirt_auth }}"
-        name: "AutomaticVmSystem"
-        size: "2GiB"
-        format: "cow"
-        storage_domain: "domain1"
-        bootable: True
-        state: "present"
-        wait: True
     - name: "Creating virtual machine"
       ovirt_vms:
         auth: "{{ ovirt_auth }}"
@@ -27,9 +17,6 @@
         cpu_sockets: 1
         memory: "500MiB"
         memory_guaranteed: "500MiB"
-        disks:
-          - name: "AutomaticVmSystem"
-          - bootable: True
         nics:
           - name: "main"
             profile_name: "ovirtmgmt"
@@ -37,3 +24,14 @@
         operating_system: "rhel_7x64"
         state: "stopped"
         type: "server"
+    - name: "Creating virtual disk"
+      ovirt_disks:
+        auth: "{{ ovirt_auth }}"
+        name: "AutomaticVmSystem"
+        size: "2GiB"
+        format: "cow"
+        storage_domain: "domain1"
+        bootable: True
+        state: "attached"
+        vm:name: "AutomaticVm"
+        wait: True
